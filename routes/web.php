@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
 
     return view('index');
-    
+
 
 });
 
@@ -31,13 +32,20 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::prefix('/{account}')->group(function (){
-    Route::get('/carts',[AdminController::class,'show'])->name('carts.show');
-    Route::get('/carts/create',[AdminController::class,'create'])->name('carts.create');
-    Route::get('/carts/store',[AdminController::class,'store'])->name('carts.edit');
-    Route::get('/carts/update',[AdminController::class,'update'])->name('carts.update');
-    Route::get('/carts/destroy',[AdminController::class,'destroy'])->name('carts.destroy');
+    Route::get('edit',[CustomerController::class,'edit'])->name('customers.edit');
+    Route::post('update',[CustomerController::class,'update'])->name('customers.update');
+    Route::get('/carts',[CartItemController::class,'show'])->name('carts.show');
+    Route::get('/carts/create',[CartItemController::class,'create'])->name('carts.create');
+    Route::post('/carts/store',[CartItemController::class,'store'])->name('carts.store');
+    Route::post('/carts/update',[CartItemController::class,'update'])->name('carts.update');
+    Route::delete('/carts/destroy',[CartItemController::class,'destroy'])->name('carts.destroy');
+    Route::get('/carts/checkout',[CartItemController::class,'checkout'])->name('carts.checkout');
+    Route::post('orders',[OrderController::class,'transform'])->name('orders.transform');
+    Route::get('orders/{order}',[OrderController::class,'show'])->name('orders.show');
 
 });
+
+
 
 Route::prefix('admin')->group(function (){
    Route::get('/',[AdminController::class,'index'])->name('admin.index');
@@ -53,5 +61,15 @@ Route::prefix('admin')->group(function (){
     Route::Post('orders/update',[AdminOrderController::class,'update'])->name('admin.orders.update');
     Route::delete('orders/destroy',[AdminOrderController::class,'destroy'])->name('admin.orders.destroy');
 });
+
+
+Route::prefix('products')->group(function ()
+    {
+        Route::get('show',[ProductController::class,'show'])->name('products.show');
+        Route::get('{category}',[ProductController::class,'category'])->name('products.category');
+        Route::get('{request}',[ProductController::class,'search'])->name('products.search');
+
+    });
+
 
 
