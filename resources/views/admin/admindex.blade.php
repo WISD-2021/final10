@@ -1,4 +1,5 @@
 @extends('layouts.adminmaster')
+@section('title','管理者介面')
 @section('admin.content')
             <div id="layoutSidenav_content">
                 <main>
