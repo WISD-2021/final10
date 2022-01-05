@@ -25,19 +25,31 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
+                        <form method="POST" action="{{ route('logout') }}">
                         @if(auth()->user()->type=='customer')
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">會員基本資料</a>
+                            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"><font color="#F0F8FF">會員基本資料</a>
+                            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"><font color="#F0F8FF">購物車</a>
                         @elseif(auth()->user()->type=='admin')
-                            <a href="{{route('admin.index')}}" class="text-sm text-gray-700 dark:text-gray-500 underline">管理介面</a>
+                            <a href="{{route('admin.index')}}" class="text-sm text-gray-700 dark:text-gray-500 underline"><font color="#F0F8FF">管理介面</a>
                             @endif
+
+                                @csrf
+
+                                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                     onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    <font color="#F0F8FF"><u>登出</u>
+                                </x-jet-dropdown-link>
+                            </form>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"><font color="#F0F8FF">登入</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"><font color="#F0F8FF">註冊</a>
                         @endif
                     @endauth
                 </div>
+
             @endif
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
