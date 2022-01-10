@@ -3,6 +3,7 @@
 namespace App\Models;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Cart_Item;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,5 +17,10 @@ class Customer extends Model
     public function Product()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function Cart_Item()
+    {
+        return $this->hasOne(Product::class);
     }
 }

@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\Customer;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Cart_Item extends Model
 {
     use HasFactory;
+
+    public function Customer()
+    {
+        return $this->hasOne(Product::class);
+    }
+
 }
