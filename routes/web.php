@@ -20,12 +20,7 @@ use App\Http\Controllers\CartItemController;
 |
 */
 
-Route::get('/', function () {
-
-    return view('index');
-
-
-});
+Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
