@@ -96,6 +96,13 @@ class ProductController extends Controller
         $category = DB::table('products')->where('frag','=',$frag)->get();
         return view('products.productcategory', ['product' => $category]);
     }
+    public function all()
+    {
+        $products=Product::orderby('id','ASC')->get();
+        $data=['products'=>$products];
+        return view('products.allp',$data);
+    }
+
 
 
 }

@@ -15,5 +15,6 @@ class HomeController extends Controller
         $product = ['products'=> $products];
 
         return view('index', $product);
+
     }
 }

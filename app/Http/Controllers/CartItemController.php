@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCart_ItemRequest;
 use App\Http\Requests\UpdateCart_ItemRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartItemController extends Controller
 {
@@ -18,7 +19,17 @@ class CartItemController extends Controller
     public function index()
     {
         //
+        if(Auth::check()) /*判斷使用者登入*/
+        {
+            /*success*/
+            $data=DB::table('cart__items')->where('customer_id','=',auth()->user()->id)->get(); /*使用者登入驗證*/
 
+        }
+        else
+        {
+            echo "<script>alert('尚未登入')</script>"; /*跳轉*/
+            return redirect()->route('login');
+        }
     }
 
     /**
