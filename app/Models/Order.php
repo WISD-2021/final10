@@ -19,8 +19,4 @@ class Order extends Model
         return $this->hasMany(Product::class);
     }
 
-    public function Item()
-    {
-        return $this->hasOne(Product::class);
-    }
 }

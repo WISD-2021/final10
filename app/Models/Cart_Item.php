@@ -10,9 +10,5 @@ class Cart_Item extends Model
 {
     use HasFactory;
 
-    public function Customer()
-    {
-        return $this->hasOne(Product::class);
-    }
 
 }

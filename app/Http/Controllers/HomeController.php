@@ -11,7 +11,7 @@ class HomeController extends Controller
     //
     public function index()
     {
-        $products = Product::orderby('id','ASC')->take(5)->get();
+        $products = Product::orderby('id','ASC')->take(6)->get();
         $product = ['products'=> $products];
 
         return view('index', $product);

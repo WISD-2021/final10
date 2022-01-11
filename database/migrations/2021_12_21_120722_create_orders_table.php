@@ -13,12 +13,16 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->date('day');
-            $table->string('customer_id');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('orders')) {
+            Schema::create('orders', function (Blueprint $table) {
+                $table->id();
+                $table->date('day');
+                $table->string('state');
+                $table->unsignedBigInteger('customer_id');
+                $table->foreign('customer_id')->references('id')->on('customers');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
