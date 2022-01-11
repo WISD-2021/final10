@@ -33,119 +33,7 @@
         <a class="navbar-brand" href="{{route('index')}}">Le parfum ultime</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                @if(\Illuminate\Support\Facades\Auth::check())
-            <!--判斷登入身分--> @if(Auth::user()->type=='admin')
 
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('index')}}">首頁</a></li>
-                                <li class="nav-item dropdown">
-
-
-
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">商品</a>
-
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="{{route('products.all')}}">所有商品</a></li>
-                                        <li><hr class="dropdown-divider" /></li> <!--分隔線-->
-
-                                             <li class="drop down-header" >香調</li>
-                                                <li><a class="dropdown-item" href="{{route('products.category','花香調')}}">花香調</a></li>
-                                                <li><a class="dropdown-item" href="{{route('products.category','果香調')}}">果香調</a></li>
-                                                <li><a class="dropdown-item" href="{{route('products.category','木香調')}}">木質調</a></li>
-                                                <li><a class="dropdown-item" href="{{route('products.category','柑橘調')}}">柑橘調</a></li>
-                                                <li><a class="dropdown-item" href="{{route('products.category','海洋調')}}">海洋調</a></li>
-
-                                    </ul>
-
-                                </li>
-                            </ul>
-
-                            <form class="d-flex">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">管理中心</a></li>
-                                </ul>
-
-                            </form>
-                             @elseif(Auth::user()->type=='customer')
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('index')}}">首頁</a></li>
-                                        <li class="nav-item dropdown">
-
-
-
-                                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">商品</a>
-
-                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li><a class="dropdown-item" href="{{route('products.all')}}">所有商品</a></li>
-                                                <li><hr class="dropdown-divider" /></li> <!--分隔線-->
-
-                                                <li class="drop down-header" >香調</li>
-                                                <li><a class="dropdown-item" href="{{route('products.category','花香調')}}">花香調</a></li>
-                                                <li><a class="dropdown-item" href="{{route('products.category','果香調')}}">果香調</a></li>
-                                                <li><a class="dropdown-item" href="{{route('products.category','木香調')}}">木質調</a></li>
-                                                <li><a class="dropdown-item" href="{{route('products.category','柑橘調')}}">柑橘調</a></li>
-                                                <li><a class="dropdown-item" href="{{route('products.category','海洋調')}}">海洋調</a></li>
-
-                                            </ul>
-
-                                        </li>
-                                    </ul>
-
-                                    <form class="d-flex">
-                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">會員中心</a></li>
-                                        </ul>
-
-                                        <button class="btn btn-outline-dark" type="submit">
-                                            <i class="bi-cart-fill me-1"></i>
-                                            購物車
-                                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                                        </button>
-                                    </form>
-                                    @else
-                                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('index')}}">首頁</a></li>
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">商品</a>
-
-                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                        <li><a class="dropdown-item" href="{{route('products.all')}}">所有商品</a></li>
-                                                        <li><hr class="dropdown-divider" /></li> <!--分隔線-->
-
-                                                        <li class="drop down-header" >香調</li>
-                                                        <li><a class="dropdown-item" href="{{route('products.category','花香調')}}">花香調</a></li>
-                                                        <li><a class="dropdown-item" href="{{route('products.category','果香調')}}">果香調</a></li>
-                                                        <li><a class="dropdown-item" href="{{route('products.category','木香調')}}">木質調</a></li>
-                                                        <li><a class="dropdown-item" href="{{route('products.category','柑橘調')}}">柑橘調</a></li>
-                                                        <li><a class="dropdown-item" href="{{route('products.category','海洋調')}}">海洋調</a></li>
-
-                                                    </ul>
-
-                                                </li>
-                                            </ul>
-
-                                            <form class="d-flex">
-                                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                                                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('logout')}}" onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-                                                            登出
-                                                        </a>
-                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                            @csrf
-                                                        </form>>會員中心</li>
-                                                </ul>
-
-                                                <button class="btn btn-outline-dark" type="submit">
-                                                    <i class="bi-cart-fill me-1"></i>
-                                                    購物車
-                                                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                                                </button>
-                                            </form>
-                                        @endif
-
-               @else
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('index')}}">首頁</a></li>
@@ -162,7 +50,7 @@
                                 <li class="drop down-header" >香調</li>
                                 <li><a class="dropdown-item" href="{{route('products.category','花香調')}}">花香調</a></li>
                                 <li><a class="dropdown-item" href="{{route('products.category','果香調')}}">果香調</a></li>
-                                <li><a class="dropdown-item" href="{{route('products.category','木香調')}}">木質調</a></li>
+                                <li><a class="dropdown-item" href="{{route('products.category','木質調')}}">木質調</a></li>
                                 <li><a class="dropdown-item" href="{{route('products.category','柑橘調')}}">柑橘調</a></li>
                                 <li><a class="dropdown-item" href="{{route('products.category','海洋調')}}">海洋調</a></li>
 
@@ -170,20 +58,44 @@
 
                         </li>
                     </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                  購物車
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+            @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <form method="POST" action="{{ route('logout') }}">
+                            @if(auth()->user()->type=='customer')
+                                <a href="{{ route('customer.index') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">會員基本資料</a>
+                            @elseif(auth()->user()->type=='admin')
+                                <a href="{{route('admin.index')}}" class="text-sm text-gray-700 dark:text-gray-500 underline">管理介面</a>
+                            @endif
 
-                    <form class="d-flex">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('login')}}">登入</a></li>
-                        </ul>
+                            @csrf
 
-                        <a class="btn btn-outline-dark" href="{{route('login')}}">
-                            <i class="bi-cart-fill me-1"></i>
-                            購物車
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </a>
-                    </form>
+                            <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                 onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                <a class="nav-link" href="{{ route('index') }}" onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">登出</a>
+                            </x-jet-dropdown-link>
+                        </form>
+                    @else
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"> <li class="nav-item"> <a href="{{ route('login') }}" class="nav-link active">登入</a></li>
+                        @if (Route::has('register'))
+                            <li class="nav-item"><a href="{{ route('register') }}" class="nav-link active">註冊</a></li>
+						</ul>
+                        @endif
+                    @endauth
+                </div>
 
-                @endif
+            @endif
+
+
 
         </div>
     </div>

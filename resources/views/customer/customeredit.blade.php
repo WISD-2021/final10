@@ -30,7 +30,7 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4" >修改商品資訊</h1>
+                <h1 class="mt-4" >會員資料</h1>
             </div>
 
             <!-- /.row -->
@@ -40,23 +40,23 @@
                     <form action="#" method="POST" role="form">
 #
                         <div class="form-group">
-                            <label for="name" class="inline">商品名稱：</label>
-                            <input name="name" class="form-control-itemname" placeholder="請輸入商品名稱" value="#">
+                            <label for="name" class="inline">會員信箱：</label>
+                            <input name="name" class="form-control-itemname" placeholder="電子信箱" value="#">
                         </div>
 
                         <div class="form-group">
-                            <label for="quan" class="inline">庫存：</label>
-                            <input name="quan" type="number" class="form-control-itemname" placeholder="請輸入目前庫存數量" value="#">
+                            <label for="quan" class="inline">性別：</label>
+                            <input name="quan" type="number" class="form-control-itemname" placeholder="請選擇性別" value="#">
                         </div>
 
                         <div class="form-group">
-                            <label for="price" class="inline">單價：</label>
-                            <input name="price" type="number" class="form-control-itemname" placeholder="請輸入單價" value="#">
+                            <label for="price" class="inline">住址：</label>
+                            <input name="price" type="number" class="form-control-itemname" placeholder="請輸入住址" value="#">
                         </div>
 
                         <div class="form-group">
-                            <label for="speci" class="inline">容量：</label>
-                            <input name="speci" type="number" class="form-control-itemname" placeholder="請輸入商品容量" value="#">
+                            <label for="speci" class="inline">行動電話</label>
+                            <input name="speci" type="number" class="form-control-itemname" placeholder="請輸入行動電話" value="#">
                         </div>
 
 

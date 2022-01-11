@@ -12,7 +12,7 @@
                         <div class="card bg-primary text-white mb-4">
                             <div class="card-body">會員資料</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="{{route("customers.show",$account="1")}}">詳細資訊</a>
+                                <a class="small text-white stretched-link" href="{{route("customers.show",$email="A@gmail.com")}}">詳細資訊</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -22,7 +22,7 @@
                             <div class="card-body">訂單資訊</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
 
-                                <a class="small text-white stretched-link" href="{{route("orders.show",$account="1")}}">詳細資訊</a>
+                                <a class="small text-white stretched-link" href="#">詳細資訊</a>
 
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
@@ -40,17 +40,28 @@
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>訂單編號</th>
+                                <th>訂單日期</th>
+                                <th>訂單狀態</th>
+                                <th>商品名稱</th>
+                                <th>數量</th>
+                                <th>金額</th>
+
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
                             </tbody>
+
+                            <tr>
+
+                                <th>訂單編號</th>
+                                <th>訂單日期</th>
+                                <th>訂單狀態</th>
+                                <th>商品名稱</th>
+                                <th>數量</th>
+                                <th>金額</th>
+
+                            </tr>
+                   
                         </table>
                     </div>
                 </div>
