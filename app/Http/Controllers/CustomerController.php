@@ -54,7 +54,7 @@ class CustomerController extends Controller
         //
         $accounts=Product::find($customer);
         $account = ['customer' => $accounts];
-        return view('customer.customerorder',$account);
+        return view('customer.customeredit',$account);
     }
 
     /**
@@ -66,6 +66,9 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         //
+        $accounts=Product::find($customer);
+        $account = ['customer' => $accounts];
+        return view('customer.customerorder',$account);
     }
 
     /**

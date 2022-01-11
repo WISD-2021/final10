@@ -7,12 +7,8 @@ use Illuminate\Http\Request;
 
 class AdminProductController extends Controller
 {
-<<<<<<< HEAD
-    //
-    public function show()
-    {
-        return view('admin.adminproduct');
 
+    //
     public function show(){
         $products=Product::orderBy('id', 'ASC')->get();
         $data=['products'=>$products];

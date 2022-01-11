@@ -26,10 +26,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::prefix('{account}')->group(function (){
+Route::prefix('{account}')->group(function(){
     Route::get('/',[CustomerController::class,'index'])->name('customers.index'); //會員中心
-    Route::get('show',[CustomerController::class,'show'])->name('customers.show');//會員資料顯示
+    Route::get('show',[CustomerController::class,'show'])->name('customers.show');//會員資料顯示+訂單
     Route::get('edit',[CustomerController::class,'edit'])->name('customers.edit');//會員資料編輯
+    Route::post('store',[CustomerController::class,'store'])->name('customers.store');
     Route::post('update',[CustomerController::class,'update'])->name('customers.update');
     //購物車
     Route::get('/carts',[CartItemController::class,'show'])->name('carts.show');
@@ -40,8 +41,7 @@ Route::prefix('{account}')->group(function (){
     Route::get('/carts/checkout',[CartItemController::class,'checkout'])->name('carts.checkout');
     //訂單轉換
     Route::post('orders',[OrderController::class,'transform'])->name('orders.transform');//CART轉換訂單
-    Route::get('orders',[OrderController::class,'show'])->name('orders.show');
-    //Route::get('orders/{order}',[OrderController::class,'detail'])->name('orders.detail');//訂單詳細
+    Route::get('orders/{order}',[OrderController::class,'detail'])->name('orders.detail');//訂單詳細
 
 });
 

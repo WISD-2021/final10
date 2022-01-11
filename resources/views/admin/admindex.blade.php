@@ -1,3 +1,4 @@
+
 @extends('layouts.adminmaster')
 @section('title','管理者介面')
 @section('admin.content')

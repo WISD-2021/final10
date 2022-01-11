@@ -26,10 +26,10 @@
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
-                                    @foreach($Items as $item)
+
 
                                     <tr>
-                                        <th>{{$item->id}}</th>
+                                        <th>d</th>
                                         <th></th>
                                         <th>Office</th>
                                         <th>Age</th>
@@ -40,7 +40,7 @@
                                     <tfoot>
                                     <tr>
 
-                                    @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
