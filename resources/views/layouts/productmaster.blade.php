@@ -59,17 +59,40 @@
             </ul>
 
             <form class="d-flex">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">會員登入</a></li>
-                </ul>
-
                 <button class="btn btn-outline-dark" type="submit">
                     <i class="bi-cart-fill me-1"></i>
                   購物車
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
-
             </form>
+            @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <form method="POST" action="{{ route('logout') }}">
+                            @if(auth()->user()->type=='customer')
+                                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">會員基本資料</a>
+                            @elseif(auth()->user()->type=='admin')
+                                <a href="{{route('admin.index')}}" class="text-sm text-gray-700 dark:text-gray-500 underline">管理介面</a>
+                            @endif
+
+                            @csrf
+
+                            <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                 onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                <u>登出</u>
+                            </x-jet-dropdown-link>
+                        </form>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">登入</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">註冊</a>
+                        @endif
+                    @endauth
+                </div>
+
+            @endif
         </div>
     </div>
 </nav>
