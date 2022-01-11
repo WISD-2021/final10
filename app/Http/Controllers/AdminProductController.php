@@ -12,4 +12,24 @@ class AdminProductController extends Controller
         $data=['products'=>$products];
         return view('admin.product', $data);
     }
+
+    public function create(){
+        return view('admin.products.productcreate');
+    }
+
+    public function store(){
+
+    }
+
+    public function edit(){
+
+    }
+
+    public function update(){
+
+    }
+
+    public function destroy(){
+
+    }
 }

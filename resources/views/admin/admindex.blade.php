@@ -5,15 +5,13 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">管理中心</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
+
  <!--bluePrimary Card-->    <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">商品管理</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{ route('admin.products.show') }}">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{ route('admin.products.show') }}">查看</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -22,7 +20,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">訂單管理</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{ route('admin.orders.show') }}">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{ route('admin.orders.show') }}">查看</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
