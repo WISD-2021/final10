@@ -37,53 +37,75 @@
             <p>
             <div class="row">
                 <div class="col-lg-8">
-                    <form action="{{route('admin.products.store')}}}" method="POST" role="form">
+                    <form action="{{ route('admin.products.store') }}" method="POST" role="form">
+                        @csrf
                         <div class="form-group">
-                            <label for="title" class="inline">商品名稱：</label>
-                            <input name="title" class="form-control-itemname" placeholder="請輸入商品名稱" value="">
+                            <label for="name" class="inline">商品名稱：</label>
+                            <input name="name" class="form-control-itemname" placeholder="請輸入商品名稱" value="{{ old('name') }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="title" class="inline">庫存：</label>
-                            <input name="title" type="number" class="form-control-itemname" placeholder="請輸入目前庫存數量" value="1">
+                            <label for="quan" class="inline">庫存：</label>
+                            <input name="quan" type="number" class="form-control-itemname" placeholder="請輸入目前庫存數量" value="{{ old('quan') }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="title" class="inline">單價：</label>
-                            <input name="title" type="number" class="form-control-itemname" placeholder="請輸入單價" value="">
+                            <label for="price" class="inline">單價：</label>
+                            <input name="price" type="number" class="form-control-itemname" placeholder="請輸入單價" value="{{ old('price') }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="title" class="inline">容量：</label>
-                            <input name="title" type="number" class="form-control-itemname" placeholder="請輸入商品容量" value="">
+                            <label for="speci" class="inline">容量：</label>
+                            <input name="speci" type="number" class="form-control-itemname" placeholder="請輸入商品容量" value="{{ old('speci') }}">
+
                         </div>
 
                         <div class="form-group">
-                            <label for="title" class="inline">香味：</label>
-                            <select class="form-control">
-                                <option>花香調</option>
-                                <option>果香調</option>
-                                <option>木質調</option>
-                                <option>柑橘調</option>
-                                <option>海洋調</option>
+                            <label for="unit" class="inline">容量：</label>
+                            <select name="unit" class="form-control">
+                                <option value="毫升" selected>毫升</option>
+                                <option value="公克">公克</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="title" class="inline">類型：</label>
-                            <select class="form-control">
-                                <option>香氛蠟燭</option>
-                                <option>擴香瓶</option>
-                                <option>擴香石</option>
-                                <option>擴香片</option>
-                                <option>擴香膏</option>
+                            <label for="frag" class="inline">香味：</label>
+                            <select name="frag" class="form-control">
+                                <option value="花香調" >花香調</option>
+                                <option value="果香調" >果香調</option>
+                                <option value="木質調" >木質調</option>
+                                <option value="柑橘調" selected>柑橘調</option>
+                                <option value="海洋調" >海洋調</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="content">內容：</label>
-                            <textarea id="content" name="content" class="form-control" rows="10"></textarea>
+                            <label for="type" class="inline">類型：</label>
+                            <select name="type" class="form-control">
+                                <option value="香氛蠟燭" selected>香氛蠟燭</option>
+                                <option value="擴香瓶">擴香瓶</option>
+                                <option value="擴香石">擴香石</option>
+                                <option value="擴香片">擴香片</option>
+                                <option value="擴香膏">擴香膏</option>
+                            </select>
                         </div>
+
+                        <div class="form-group">
+                            <label for="pic" class="inline">商品圖片連結：</label>
+                            <input name="pic" class="form-control-itemname" placeholder="請輸入連結" value="{{ old('pic') }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="life" class="inline">有限期限：</label>
+                            <input name="life" class="form-control-itemname" placeholder="請輸入" value="{{ old('life') }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="remark">內容：</label>
+                            <textarea id="remark" name="remark" class="form-control" rows="10">{{ old('remark') }}</textarea>
+                        </div>
+
+
 
 
                         <div class="text-right">
