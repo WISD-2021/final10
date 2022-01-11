@@ -61,6 +61,7 @@ Route::prefix('admin')->group(function (){
 Route::prefix('products')->group(function ()
     {
         Route::get('show',[ProductController::class,'show'])->name('products.show');
+        Route::get('show/{id}',[ProductController::class,'detail'])->name('products.detail');
         Route::get('{category}',[ProductController::class,'category'])->name('products.category');
         Route::get('{request}',[ProductController::class,'search'])->name('products.search');
 

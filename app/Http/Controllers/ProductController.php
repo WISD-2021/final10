@@ -5,19 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use http\Env\Request;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -45,11 +38,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show()
     {
-        //
-        return view('products.productitem');
-
+        $products=Product::orderby('id','ASC')->get();
+        $data=['products'=>$products];
+        return view('products.productitem',$data);
     }
 
     /**
@@ -84,5 +77,22 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+
     }
+
+
+    public function detail($id)
+    {
+        $product=Product::find($id);
+        $data = ['product' => $product];
+        return view('products.productitem',$data);
+    }
+
+    public function category($frag)
+    {
+        $category = DB::table('products')->where('frag','=',$frag)->get();
+        return view('products.productcategory', ['product' => $category]);
+    }
+
+
 }
