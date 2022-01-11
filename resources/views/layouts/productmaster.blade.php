@@ -35,7 +35,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">首頁</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('index')}}">首頁</a></li>
                 <li class="nav-item dropdown">
 
 
@@ -65,7 +65,7 @@
 
                 <button class="btn btn-outline-dark" type="submit">
                     <i class="bi-cart-fill me-1"></i>
-                    Cart
+                  購物車
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
 
@@ -73,6 +73,7 @@
         </div>
     </div>
 </nav>
+@yield('customer.content')
     @yield('product.content')
     @yield('index.navbar')
     <!-- Footer-->

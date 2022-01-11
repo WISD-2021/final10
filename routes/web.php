@@ -26,17 +26,22 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::prefix('/{account}')->group(function (){
-    Route::get('edit',[CustomerController::class,'edit'])->name('customers.edit');
+Route::prefix('{account}')->group(function (){
+    Route::get('/',[CustomerController::class,'index'])->name('customers.index'); //會員中心
+    Route::get('show',[CustomerController::class,'show'])->name('customers.show');//會員資料顯示
+    Route::get('edit',[CustomerController::class,'edit'])->name('customers.edit');//會員資料編輯
     Route::post('update',[CustomerController::class,'update'])->name('customers.update');
+    //購物車
     Route::get('/carts',[CartItemController::class,'show'])->name('carts.show');
     Route::get('/carts/create',[CartItemController::class,'create'])->name('carts.create');
     Route::post('/carts/store',[CartItemController::class,'store'])->name('carts.store');
     Route::post('/carts/update',[CartItemController::class,'update'])->name('carts.update');
     Route::delete('/carts/destroy',[CartItemController::class,'destroy'])->name('carts.destroy');
     Route::get('/carts/checkout',[CartItemController::class,'checkout'])->name('carts.checkout');
-    Route::post('orders',[OrderController::class,'transform'])->name('orders.transform');
-    Route::get('orders/{order}',[OrderController::class,'show'])->name('orders.show');
+    //訂單轉換
+    Route::post('orders',[OrderController::class,'transform'])->name('orders.transform');//CART轉換訂單
+    Route::get('orders',[OrderController::class,'show'])->name('orders.show');
+    //Route::get('orders/{order}',[OrderController::class,'detail'])->name('orders.detail');//訂單詳細
 
 });
 

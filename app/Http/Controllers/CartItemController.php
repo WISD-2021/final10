@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cart_Item;
 use App\Http\Requests\StoreCart_ItemRequest;
 use App\Http\Requests\UpdateCart_ItemRequest;
+use App\Models\Product;
+use Illuminate\Http\Request;
 
 class CartItemController extends Controller
 {
@@ -16,6 +18,7 @@ class CartItemController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -23,9 +26,12 @@ class CartItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $post = Cart_Item::create($request)->all();
+
+
     }
 
     /**
@@ -48,6 +54,9 @@ class CartItemController extends Controller
     public function show(Cart_Item $cart_Item)
     {
         //
+        $product=Product::find($id);
+        $data = ['product' => $product];
+        return view('products.productitem',$data);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use App\Models\Product;
 
 class CustomerController extends Controller
 {
@@ -13,9 +14,12 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
+        $accounts=Product::find($id);
+        $account = ['customer' => $accounts];
+        return view('customer.customer',$account);
     }
 
     /**
@@ -48,6 +52,9 @@ class CustomerController extends Controller
     public function show(Customer $customer)
     {
         //
+        $accounts=Product::find($customer);
+        $account = ['customer' => $accounts];
+        return view('customer.customerorder',$account);
     }
 
     /**

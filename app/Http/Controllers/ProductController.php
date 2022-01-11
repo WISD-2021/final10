@@ -85,7 +85,10 @@ class ProductController extends Controller
     {
         $product=Product::find($id);
         $data = ['product' => $product];
-        return view('products.productitem',$data);
+        $productu=Product::orderby('id','ASC')->take(4)->get();
+        $productur = ['products'=> $productu];
+        return view('products.productitem',$data,$productur);
+
     }
 
     public function category($frag)

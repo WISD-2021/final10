@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -45,9 +48,14 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Order $id)
     {
         //
+        $orders=Order::find($id);
+        $order = ['Orders' => $orders];
+        $items=Item::find($id);
+        $item = ['Items' => $items];
+        return view('customer.customerorder',$order, $item);
     }
 
     /**
@@ -82,5 +90,11 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function transform( $id)
+    {
+        //
+
     }
 }

@@ -1,5 +1,8 @@
 @extends('layouts.productmaster')
+
 @section('index.head')
+    <!-- Navigation navbar-->
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/lib/w3.css">
     <title>Le parfum ultime</title>
@@ -19,8 +22,8 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">商品廣告幻燈片</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">(內文)</p>
+                    <h1 class="display-4 fw-bolder">Le parfum ultime</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Le parfum ultime</p>
                 </div>
             </div>
         </header>
@@ -42,7 +45,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{route('carts.create')}}">加入購物車</a>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{route('carts.create',$products->id)}}">加入購物車</a>
                                     <a class="btn btn-outline-danger mt-auto" href="{{route('products.detail',$products->id)}}" >查看商品</a></div>
                             </div>
                         </div>
