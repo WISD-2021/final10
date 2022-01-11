@@ -47,11 +47,11 @@
                                         <td>{{$product->speci}}</td>
                                         <td>{{$product->unit}}</td>
                                         <td>
-                                            <a class="btn btn-sm btn-primary" href="{{ route('admin.products.edit', $product->id) }}">編輯</a>
+                                            <a class="btn btn-sm btn-primary" href="{{ route('admin.products.edit',$product->id) }}">編輯</a>
                                             <form action="{{route('admin.products.destroy')}}" method="POST" style="display: inline">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
-                                                <button  class="btn btn-sm btn-danger" type="submit">刪除任務</button>
+                                                <button  class="btn btn-sm btn-danger" type="submit">刪除</button>
                                             </form></td>
                                     </tr>
                                 @endforeach

@@ -105,9 +105,6 @@
                             <textarea id="remark" name="remark" class="form-control" rows="10">{{ old('remark') }}</textarea>
                         </div>
 
-
-
-
                         <div class="text-right">
                             <button type="submit" class="btn btn-success">儲存</button>
                         </div>

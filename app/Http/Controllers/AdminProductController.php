@@ -25,8 +25,7 @@ class AdminProductController extends Controller
     public function edit($id)
     {
         $products = Product::find($id);
-        $data = ['product'=>$products];
-        return view('admin.products.productedit',$data);
+        return view('admin.products.productedit', ['products'=>$products]);
     }
 
     public function update(Request $request,$id){
