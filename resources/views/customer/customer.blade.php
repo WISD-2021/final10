@@ -50,18 +50,20 @@
                             </tr>
                             </thead>
                             </tbody>
-
+                            @foreach($orders as $order)
+                                @foreach($items as $item)
                             <tr>
 
-                                <th>訂單編號</th>
-                                <th>訂單日期</th>
-                                <th>訂單狀態</th>
-                                <th>商品名稱</th>
-                                <th>數量</th>
+                                <th>{{$order->id}}</th>
+                                <th>{{$order->day}}</th>
+                                <th>{{$order->state}}</th>
+                                <th>{{$item->product_id}}</th>
+                                <th>{{$item->quanity}}</th>
                                 <th>金額</th>
 
                             </tr>
-                   
+                            @endforeach
+                            @endforeach
                         </table>
                     </div>
                 </div>

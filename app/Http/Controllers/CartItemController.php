@@ -65,8 +65,8 @@ class CartItemController extends Controller
     public function show(Cart_Item $cart_Item)
     {
         //
-        $product=Product::find($id);
-        $data = ['product' => $product];
+        $carts=Cart_Item::find($cart_Item);
+        $data = ['cart_item' => $carts];
         return view('products.productitem',$data);
     }
 

@@ -59,18 +59,18 @@
                         </li>
                     </ul>
             <form class="d-flex">
-                <button class="btn btn-outline-dark" type="submit">
+                <a class="btn btn-outline-dark" href="#">
                     <i class="bi-cart-fill me-1"></i>
                   購物車
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button>
+                </a>
             </form>
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <form method="POST" action="{{ route('logout') }}">
                             @if(auth()->user()->type=='customer')
-                                <a href="{{ route('customer.index') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">會員基本資料</a>
+                                <a href="{{ route('customers.index') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">會員基本資料</a>
                             @elseif(auth()->user()->type=='admin')
                                 <a href="{{route('admin.index')}}" class="text-sm text-gray-700 dark:text-gray-500 underline">管理介面</a>
                             @endif
