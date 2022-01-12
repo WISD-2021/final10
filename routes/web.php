@@ -26,11 +26,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-<<<<<<< HEAD
+
 Route::prefix('customers')->group(function(){
-=======
-Route::prefix('customers/{email}')->group(function(){
->>>>>>> 711a38f5e57c1324e37c17c6fb6ee51afaab35e6
+
     Route::get('/',[CustomerController::class,'index'])->name('customers.index'); //會員中心
     Route::get('show',[CustomerController::class,'show'])->name('customers.show');//會員資料顯示+訂單
     Route::get('edit',[CustomerController::class,'edit'])->name('customers.edit');//會員資料編輯
