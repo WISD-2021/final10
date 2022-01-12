@@ -26,14 +26,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-<<<<<<< HEAD
+
 Route::prefix('customers')->group(function(){
-=======
-Route::prefix('customers/{email}')->group(function(){
->>>>>>> 711a38f5e57c1324e37c17c6fb6ee51afaab35e6
     Route::get('/',[CustomerController::class,'index'])->name('customers.index'); //會員中心
     Route::get('show',[CustomerController::class,'show'])->name('customers.show');//會員資料顯示+訂單
-    Route::get('edit',[CustomerController::class,'edit'])->name('customers.edit');//會員資料編輯
+    Route::get('edit/{id}',[CustomerController::class,'edit'])->name('customers.edit');//會員資料編輯
     Route::post('store',[CustomerController::class,'store'])->name('customers.store');
     Route::post('update',[CustomerController::class,'update'])->name('customers.update');
     //購物車
@@ -56,12 +53,12 @@ Route::prefix('admin')->group(function (){
    Route::get('products',[AdminProductController::class,'show'])->name('admin.products.show');
    Route::get('products/create',[AdminProductController::class,'create'])->name('admin.products.create');
    Route::post('products/store',[AdminProductController::class,'store'])->name('admin.products.store');
-   Route::get('products/edit',[AdminProductController::class,'edit'])->name('admin.products.edit');
-   Route::Post('products/update',[AdminProductController::class,'update'])->name('admin.products.update');
+   Route::get('products/edit/{id}',[AdminProductController::class,'edit'])->name('admin.products.edit');
+   Route::Post('products/update/{id}',[AdminProductController::class,'update'])->name('admin.products.update');
    Route::delete('products/{id}}',[AdminProductController::class,'destroy'])->name('admin.products.destroy');
 
     Route::get('orders',[AdminOrderController::class,'show'])->name('admin.orders.show');
-    Route::get('orders/{id}}',[AdminOrderController::class,'edit'])->name('admin.orders.edit');
+    Route::get('orders/{id}',[AdminOrderController::class,'edit'])->name('admin.orders.edit');
     Route::Post('orders/update',[AdminOrderController::class,'update'])->name('admin.orders.update');
     Route::delete('orders/destroy',[AdminOrderController::class,'destroy'])->name('admin.orders.destroy');
 });

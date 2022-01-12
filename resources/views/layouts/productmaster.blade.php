@@ -77,12 +77,11 @@
 
                             @csrf
 
-                            <x-jet-dropdown-link href="{{ route('logout') }}"
-                                                 onclick="event.preventDefault();
+                                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                <a class="nav-link" href="{{ route('index') }}" onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">登出</a>
-                            </x-jet-dropdown-link>
+                                    <u>登出</u>
+                                </x-jet-dropdown-link>
                         </form>
                     @else
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"> <li class="nav-item"> <a href="{{ route('login') }}" class="nav-link active">登入</a></li>

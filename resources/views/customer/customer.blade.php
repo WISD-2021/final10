@@ -12,7 +12,7 @@
                         <div class="card bg-primary text-white mb-4">
                             <div class="card-body">會員資料</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="{{route("customers.show",$email="A@gmail.com")}}">詳細資訊</a>
+                                <a class="small text-white stretched-link" href="{{route("customers.show",auth()->user()->email)}}">詳細資訊</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>

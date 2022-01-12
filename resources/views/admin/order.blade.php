@@ -29,8 +29,8 @@
                                         <td>{{ $order->customer_id }}</td>
                                         <td>{{ $order->state }}</td>
                                         <td>
-                                            <a class="btn btn-sm btn-primary" href="{{ route('admin.order.edit',$order->id) }}">編輯</a>
-                                            <form action="{{route('admin.orders.destroy')}}" method="POST" style="display: inline">
+                                            <a class="btn btn-sm btn-primary" href="{{ route('admin.order.update',$order->id) }}">編輯</a>
+                                            <form action="{{route('admin.orders.destroy',$order->id)}}" method="POST" style="display: inline">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
                                                 <button  class="btn btn-sm btn-danger" type="submit">刪除</button>
