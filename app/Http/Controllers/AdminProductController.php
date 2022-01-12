@@ -27,7 +27,8 @@ class AdminProductController extends Controller
     public function edit($id)
     {
         $products = Product::find($id);
-        return view('admin.products.productedit', ['products'=>$products]);
+        $data1= ['products'=>$products];
+        return view('admin.products.productedit',$data1);
     }
 
     public function update(Request $request,$id){
@@ -36,8 +37,9 @@ class AdminProductController extends Controller
         return redirect()->route('admin.products.show');
     }
 
-    public function destroy(){
+    public function destroy($id){
+        Product::destroy($id);
 
-
+        return redirect()->route('admin.products.show');
     }
 }

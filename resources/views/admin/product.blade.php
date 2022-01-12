@@ -48,11 +48,12 @@
                                         <td>{{$product->unit}}</td>
                                         <td>
                                             <a class="btn btn-sm btn-primary" href="{{ route('admin.products.edit',$product->id) }}">編輯</a>
-                                            <form action="{{route('admin.products.destroy')}}" method="POST" style="display: inline">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
+                                            <form action="{{ route('admin.products.destroy',$product->id) }}" method="POST" style="display: inline">
+                                                @method('DELETE')
+                                                @csrf
                                                 <button  class="btn btn-sm btn-danger" type="submit">刪除</button>
-                                            </form></td>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

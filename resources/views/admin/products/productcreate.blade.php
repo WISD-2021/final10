@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="unit" class="inline">容量：</label>
+                            <label for="unit" class="inline">單位：</label>
                             <select name="unit" class="form-control">
                                 <option value="毫升" selected>毫升</option>
                                 <option value="公克">公克</option>
