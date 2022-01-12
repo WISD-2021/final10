@@ -80,7 +80,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     商品
                 </a>
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.orders.show') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     訂單
                 </a>

@@ -36,8 +36,9 @@ class AdminProductController extends Controller
         return redirect()->route('admin.products.show');
     }
 
-    public function destroy(){
+    public function destroy($id){
+        Product::destroy($id);
 
-
+        return redirect()->route('admin.products.show');
     }
 }

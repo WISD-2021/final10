@@ -22,7 +22,7 @@
                             <div class="card-body">訂單資訊</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
 
-                                <a class="small text-white stretched-link" href="{{route("orders.show",$account="1")}}">詳細資訊</a>
+                                <a class="small text-white stretched-link" href="#">詳細資訊</a>
 
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
