@@ -16,11 +16,13 @@ class HomeController extends Controller
 
         if(\Illuminate\Support\Facades\Auth::check()){
             $id=DB::table('customers')->where('id','=',auth()->user()->id);
-            if(isset($id)){
-                DB::table('customers')->insert(
-                    [
-                        'id'=>auth()->user()->id
-                    ]);
+            if(isset($id){
+                if(auth()->user()->type=='customer') {
+                    DB::table('customers')->insert(
+                        [
+                            'id' => auth()->user()->id
+                        ]);
+                }
             }
         }
 
