@@ -36,10 +36,9 @@ Route::prefix('customers')->group(function(){
     Route::post('update',[CustomerController::class,'update'])->name('customers.update');
     //購物車
     Route::get('/carts',[CartItemController::class,'show'])->name('carts.show');
-    Route::get('/carts/create',[CartItemController::class,'create'])->name('carts.create');
-    Route::post('/carts/store',[CartItemController::class,'store'])->name('carts.store');
+    Route::post('/carts/store/{id}',[CartItemController::class,'store'])->name('carts.store');
     Route::post('/carts/update',[CartItemController::class,'update'])->name('carts.update');
-    Route::delete('/carts/destroy',[CartItemController::class,'destroy'])->name('carts.destroy');
+    Route::delete('/carts/destroy/{id}',[CartItemController::class,'destroy'])->name('carts.destroy');
     Route::get('/carts/checkout',[CartItemController::class,'checkout'])->name('carts.checkout');
     //訂單轉換
     Route::post('orders',[OrderController::class,'transform'])->name('orders.transform');//CART轉換訂單
@@ -55,10 +54,8 @@ Route::prefix('admin')->group(function (){
    Route::get('products/create',[AdminProductController::class,'create'])->name('admin.products.create');
    Route::post('products/store',[AdminProductController::class,'store'])->name('admin.products.store');
    Route::get('products/edit/{id}',[AdminProductController::class,'edit'])->name('admin.products.edit');
-
    Route::Post('products/update/{id}',[AdminProductController::class,'update'])->name('admin.products.update');
-
-   Route::delete('products/{id}}',[AdminProductController::class,'destroy'])->name('admin.products.destroy');
+   Route::delete('products/{id}',[AdminProductController::class,'destroy'])->name('admin.products.destroy');
 
     Route::get('orders',[AdminOrderController::class,'show'])->name('admin.orders.show');
     Route::get('orders/{id}',[AdminOrderController::class,'edit'])->name('admin.orders.edit');

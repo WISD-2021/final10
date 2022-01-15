@@ -109,8 +109,10 @@ class CartItemController extends Controller
      * @param  \App\Models\Cart_Item  $cart_Item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart_Item $cart_Item)
+    public function destroy($id)
     {
         //
+        Cart_Item::destroy($id);
+        return redirect()->route('carts.show');
     }
 }
