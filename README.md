@@ -1,7 +1,9 @@
 <h1>管理者介面</h1>
 <img src="https://i.imgur.com/HIuyHyb.jpg" width="400">
 <img src="https://i.imgur.com/0lH3ajW.jpg" width="400">
-
+<img src="https://i.imgur.com/HXIerkK.jpg" width="400">
+<img src="https://i.imgur.com/TvyE8aU.jpg" width="400">
+<img src="https://i.imgur.com/z6Wr1Qf.jpg" width="400">
 
 <h1>ERD</h1>
 <img src="https://i.imgur.com/gn8tvFI.jpg" width="400"></p>
