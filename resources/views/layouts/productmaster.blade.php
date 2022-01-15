@@ -59,7 +59,7 @@
                         </li>
                     </ul>
             <form class="d-flex">
-                <a class="btn btn-outline-dark" href="#">
+                <a class="btn btn-outline-dark" href="{{route('carts.show')}}">
                     <i class="bi-cart-fill me-1"></i>
                   購物車
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>

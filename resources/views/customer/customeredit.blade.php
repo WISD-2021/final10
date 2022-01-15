@@ -37,27 +37,27 @@
             <p>
             <div class="row">
                 <div class="col-lg-8">
-                    <form action="{{ route('customers.update') }}" method="POST" role="form">
+                    <form action="{{ route('customers.update',auth()->user()->email) }}" method="POST" role="form">
                         @csrf
                         @method('POST')
                         <div class="form-group">
                             <label for="name" class="inline">會員信箱：</label>
-                            <input name="name" class="form-control-itemname" placeholder="電子信箱" value="#">
+                            <input name="name" class="form-control-itemname" placeholder="電子信箱" value="">
                         </div>
 
                         <div class="form-group">
                             <label for="quan" class="inline">性別：</label>
-                            <input name="quan"  class="form-control-itemname" placeholder="請選擇性別" value="#">
+                            <input name="quan"  class="form-control-itemname" placeholder="請選擇性別" value=">
                         </div>
 
                         <div class="form-group">
                             <label for="price" class="inline">住址：</label>
-                            <input name="price" class="form-control-itemname" placeholder="請輸入住址" value="#">
+                            <input name="price" class="form-control-itemname" placeholder="請輸入住址" value="">
                         </div>
 
                         <div class="form-group">
                             <label for="speci" class="inline">行動電話</label>
-                            <input name="speci" class="form-control-itemname" placeholder="請輸入行動電話" value="#">
+                            <input name="speci" class="form-control-itemname" placeholder="請輸入行動電話" value="">
                         </div>
 
 

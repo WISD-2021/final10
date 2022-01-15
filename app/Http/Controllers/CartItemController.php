@@ -19,17 +19,7 @@ class CartItemController extends Controller
     public function index()
     {
         //
-        if(Auth::check()) /*判斷使用者登入*/
-        {
-            /*success*/
-            $data=DB::table('cart__items')->where('customer_id','=',auth()->user()->id)->get(); /*使用者登入驗證*/
 
-        }
-        else
-        {
-            echo "<script>alert('尚未登入')</script>"; /*跳轉*/
-            return redirect()->route('login');
-        }
     }
 
     /**
@@ -40,7 +30,7 @@ class CartItemController extends Controller
     public function create(Request $request)
     {
         //
-        $post = Cart_Item::create($request)->all();
+        return view('carts');
 
 
     }
@@ -51,9 +41,11 @@ class CartItemController extends Controller
      * @param  \App\Http\Requests\StoreCart_ItemRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCart_ItemRequest $request)
+    public function store(Request $request)
     {
         //
+        Cart_Item::create($request->all());
+        return redirect()->route('index');
     }
 
     /**
@@ -62,12 +54,12 @@ class CartItemController extends Controller
      * @param  \App\Models\Cart_Item  $cart_Item
      * @return \Illuminate\Http\Response
      */
-    public function show(Cart_Item $cart_Item)
+    public function show($id)
     {
         //
-        $carts=Cart_Item::find($cart_Item);
+        $carts=Cart_Item::find($id);
         $data = ['cart_item' => $carts];
-        return view('products.productitem',$data);
+        return view('cart',$data);
     }
 
     /**
@@ -91,6 +83,10 @@ class CartItemController extends Controller
     public function update(UpdateCart_ItemRequest $request, Cart_Item $cart_Item)
     {
         //
+
+        $carts=Cart_Item::orderby('id','ASC')->get();
+        $carts->update($request->all());
+        return redirect()->route('carts.show');
     }
 
     /**
