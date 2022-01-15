@@ -61,24 +61,32 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="unit" class="inline">單位：</label>
+                            <select name="unit" class="form-control">
+                                <option value="毫升" selected>毫升</option>
+                                <option value="公克">公克</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="frag" class="inline">香味：</label>
-                            <select class="form-control">
-                                <option value="花香調" {{ ($products->frag=="花香調"?'selected':'') }}>花香調</option>
-                                <option value="果香調" {{ ($products->frag=="果香調"?'selected':'') }} >果香調</option>
-                                <option value="木質調" {{ ($products->frag=="木質調"?'selected':'') }} >木質調</option>
-                                <option value="柑橘調" {{ ($products->frag=="柑橘調"?'selected':'') }} >柑橘調</option>
-                                <option value="海洋調" {{ ($products->frag=="海洋調"?'selected':'') }} >海洋調</option>
+                            <select id="frag" name="frag" class="form-control">
+                                <option value="花香調" {{ ($products->frag=="花香調")?'selected':'' }} >花香調</option>
+                                <option value="果香調" {{ ($products->frag=="果香調")?'selected':'' }} >果香調</option>
+                                <option value="木質調" {{ ($products->frag=="木質調")?'selected':'' }} >木質調</option>
+                                <option value="柑橘調" {{ ($products->frag=="柑橘調")?'selected':'' }} >柑橘調</option>
+                                <option value="海洋調" {{ ($products->frag=="海洋調")?'selected':'' }} >海洋調</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="type" class="inline">類型：</label>
-                            <select class="form-control">
-                                <option value="香氛蠟燭"  {{ ($products->type=="香氛蠟燭"?'selected':'') }}>香氛蠟燭</option>
-                                <option value=擴香瓶"  {{ ($products->type=="擴香瓶"?'selected':'') }}>擴香瓶</option>
-                                <option value="擴香石"  {{ ($products->type=="擴香石"?'selected':'') }}>擴香石</option>
-                                <option value="擴香片"  {{ ($products->type=="擴香片"?'selected':'') }}>擴香片</option>
-                                <option value="擴香膏"  {{ ($products->type=="擴香膏"?'selected':'') }}>擴香膏</option>
+                            <select id="type" name="type" class="form-control">
+                                <option value="香氛蠟燭"{{ ($products->type=='香氛蠟燭')?'selected':'' }}>香氛蠟燭</option>
+                                <option value="擴香瓶"{{ ($products->type=='擴香瓶')?'selected':'' }}>擴香瓶</option>
+                                <option value="擴香石"{{ ($products->type=='擴香石')?'selected':'' }}>擴香石</option>
+                                <option value="擴香片"{{ ($products->type=='擴香片')?'selected':'' }}>擴香片</option>
+                                <option value="擴香膏"{{ ($products->type=='擴香膏')?'selected':'' }}>擴香膏</option>
                             </select>
                         </div>
 

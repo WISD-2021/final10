@@ -24,6 +24,7 @@
                             <table id="datatablesSimple">
                                 <thead>
                                 <tr>
+                                    <th>商品圖片</th>
                                     <th>商品名稱</th>
                                     <th>庫存</th>
                                     <th>單價</th>
@@ -38,6 +39,7 @@
                                 <tbody>
                                 @foreach($products as $product)
                                     <tr>
+                                        <td> <img class="card-img-top" src="/images/{{$product->pic}}"></td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->quan}}</td>
                                         <td>{{$product->price}}</td>
@@ -46,6 +48,7 @@
                                         <td>{{$product->remark}}</td>
                                         <td>{{$product->speci}}</td>
                                         <td>{{$product->unit}}</td>
+
                                         <td>
                                             <a class="btn btn-sm btn-primary" href="{{ route('admin.products.edit',$product->id) }}">編輯</a>
                                             <form action="{{ route('admin.products.destroy',$product->id) }}" method="POST" style="display: inline">
@@ -57,7 +60,7 @@
                                     </tr>
                                 @endforeach
                                 </tbody>
-                            </table>
+
                             </table>
                         </div>
                     </div>

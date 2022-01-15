@@ -12,7 +12,24 @@
     <link href="../css/mana.styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <style>
-    
+        .dataTable-input
+        {
+            visibility: hidden;
+        }
+        .dataTable-dropdown
+        {
+            visibility: hidden;
+        }
+        .dataTable-top
+        {
+            padding:0px !important;
+
+        }
+        .card-body
+        {
+            padding-top:0px !important;
+        }
+
         </style>
 </head>
 
@@ -33,9 +50,6 @@
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-
-        <script src="../js/mana.datatables-simple-demo.js"></script>
-
         <script src="{{asset('js/mana.datatables-simple-demo.js')}}"></script>
 
     </body>

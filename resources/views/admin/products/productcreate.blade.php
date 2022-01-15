@@ -57,7 +57,6 @@
                         <div class="form-group">
                             <label for="speci" class="inline">容量：</label>
                             <input name="speci" type="number" class="form-control-itemname" placeholder="請輸入商品容量" value="{{ old('speci') }}">
-
                         </div>
 
                         <div class="form-group">

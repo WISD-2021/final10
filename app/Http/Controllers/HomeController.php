@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,7 @@ class HomeController extends Controller
 
         if(\Illuminate\Support\Facades\Auth::check()){
             $id=DB::table('customers')->where('id','=',auth()->user()->id);
-            if(isset($id){
+            if(isset($id)){
                 if(auth()->user()->type=='customer') {
                     DB::table('customers')->insert(
                         [
