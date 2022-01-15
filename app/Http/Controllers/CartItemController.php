@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateCart_ItemRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class CartItemController extends Controller
 {
@@ -41,10 +43,20 @@ class CartItemController extends Controller
      * @param  \App\Http\Requests\StoreCart_ItemRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
         //
-        Cart_Item::create($request->all());
+        $carts=DB::table('cart__items')->where('product_id','=',$id)->get();
+        if(!isset($caets)){
+            DB::table('cart__items')->insert
+            (
+                [
+                    'customer_id'=>auth()->user()->id,
+                    'product_id'=>$id,
+                    'quantity'=>'1'
+                ]
+            );
+        }
         return redirect()->route('index');
     }
 
@@ -54,12 +66,14 @@ class CartItemController extends Controller
      * @param  \App\Models\Cart_Item  $cart_Item
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
-        $carts=Cart_Item::find($id);
-        $data = ['cart_item' => $carts];
-        return view('cart',$data);
+        $carts=DB::table('cart__items')->where('customer_id','=',auth()->user()->id)->get();
+        $data = ['carts' => $carts];
+        $products=Product::orderby('id','ASC')->get();
+        $data1=['products'=>$products];
+        return view('cart',$data , $data1);
     }
 
     /**
@@ -95,8 +109,10 @@ class CartItemController extends Controller
      * @param  \App\Models\Cart_Item  $cart_Item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart_Item $cart_Item)
+    public function destroy($id)
     {
         //
+        Cart_Item::destroy($id);
+        return redirect()->route('carts.show');
     }
 }

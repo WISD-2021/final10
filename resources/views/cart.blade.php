@@ -28,24 +28,38 @@
     <section class="py-5">
 
         <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                        <table>
-                            <thead>
-                            <tr>
-                                <td>商品名稱</td>
-                                <td>價格</td>
-                                <td>數量</td>
-                            </tr>
-@foreach($carts as $cart)
-                                <tr>
-                                    <td>route{{$cart->product_id}}</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-@endforeach
-                            </thead>
-
-                        </table>
+            <div class="row gx-14 gx-lg-15 row-cols-15 row-cols-md-15 row-cols-xl-15 justify-content-center">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>商品圖片</td>
+                            <td>商品名稱</td>
+                            <td>價格</td>
+                            <td>數量</td>
+                            <td></td>
+                        </tr>
+                        @foreach($carts as $cart)
+                           @foreach($products as $product)
+                               @if($cart->product_id==$product->id)
+                                    <tr>
+                                        <form action="{{ route('carts.update',$cart->id)}}" method="POST" role="form">
+                                            <td> <img class="card-img-top" src="/images/{{$product->pic}}" width='100px' height='200px'></td>
+                                            <td>{{$product->name}}</td>
+                                            <td>{{$product->price}}</td>
+                                            <td><input name="quan" type="number" class="form-control-itemname" value="{{ old('quan',$cart->quantity) }}"></td>
+                                            <td><button type="submit" class="btn btn-success">儲存數量</button></td>
+                                        </form>
+                                        <form action="{{ route('carts.destroy',$cart->id) }}" method="POST" style="display: inline">
+                                            @method('DELETE')
+                                            @csrf
+                                            <td><button class="btn btn-outline-danger mt-auto" >刪除</button></td>
+                                        </form>
+                                    </tr>
+                                @endif
+                           @endforeach
+                        @endforeach
+                    </thead>
+                </table>
             </div>
         </div>
     </section>
