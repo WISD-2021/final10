@@ -66,12 +66,14 @@ class CartItemController extends Controller
      * @param  \App\Models\Cart_Item  $cart_Item
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
-        $carts=Cart_Item::find($id);
-        $data = ['cart_item' => $carts];
-        return view('cart',$data);
+        $carts=DB::table('cart__items')->where('customer_id','=',auth()->user()->id)->get();
+        $data = ['carts' => $carts];
+        $products=Product::orderby('id','ASC')->get();
+        $data1=['products'=>$products];
+        return view('cart',$data , $data1);
     }
 
     /**
