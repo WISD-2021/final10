@@ -14,7 +14,16 @@ class HomeController extends Controller
         $products = Product::orderby('id','ASC')->take(6)->get();
         $product = ['products'=> $products];
 
-        return view('index', $product);
+        if(\Illuminate\Support\Facades\Auth::check()){
+            $id=DB::table('customers')->where('id','=',auth()->user()->id);
+            if(isset($id)){
+                DB::table('customers')->insert(
+                    [
+                        'id'=>auth()->user()->id
+                    ]);
+            }
+        }
 
+        return view('index', $product);
     }
 }
