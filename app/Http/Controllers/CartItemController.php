@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateCart_ItemRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class CartItemController extends Controller
 {
@@ -41,10 +43,20 @@ class CartItemController extends Controller
      * @param  \App\Http\Requests\StoreCart_ItemRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
         //
-        Cart_Item::create($request->all());
+        $carts=DB::table('cart__items')->where('product_id','=',$id)->get();
+        if(!isset($caets)){
+            DB::table('cart__items')->insert
+            (
+                [
+                    'customer_id'=>auth()->user()->id,
+                    'product_id'=>$id,
+                    'quantity'=>'1'
+                ]
+            );
+        }
         return redirect()->route('index');
     }
 

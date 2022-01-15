@@ -75,7 +75,7 @@
                             <label for="type" class="inline">類型：</label>
                             <select class="form-control">
                                 <option value="香氛蠟燭"  {{ ($products->type=="香氛蠟燭"?'selected':'') }}>香氛蠟燭</option>
-                                <option value=擴香瓶"  {{ ($products->type=="擴香瓶"?'selected':'') }}>擴香瓶</option>
+                                <option value="擴香瓶"  {{ ($products->type=="擴香瓶"?'selected':'') }}>擴香瓶</option>
                                 <option value="擴香石"  {{ ($products->type=="擴香石"?'selected':'') }}>擴香石</option>
                                 <option value="擴香片"  {{ ($products->type=="擴香片"?'selected':'') }}>擴香片</option>
                                 <option value="擴香膏"  {{ ($products->type=="擴香膏"?'selected':'') }}>擴香膏</option>
