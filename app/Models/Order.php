@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    public function Customer()
+    public function User()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(User::class);
     }
     public function Product()
     {

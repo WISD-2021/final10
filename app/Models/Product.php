@@ -17,9 +17,9 @@ class Product extends Model
     {
         return $this->hasMany(Order::class);
     }
-    public function Customer()
+    public function User()
     {
-        return $this->hasMany(Customer::class);
+        return $this->hasMany(User::class);
     }
 
     public function Item()

@@ -60,13 +60,13 @@ class User extends Authenticatable
     ];
 
 
-    public function Admin()
+    public function Product()
     {
-        return $this->hasMany(Admin::class);
+        return $this->hasMany(Product::class);
     }
 
-    public function Customer()
+    public function Order()
     {
-        return $this->hasMany(Customer::class);
+        return $this->hasMany(Order::class);
     }
 }
