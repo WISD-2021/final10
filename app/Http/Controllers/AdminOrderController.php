@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class AdminOrderController extends Controller
 {
     public function show(){
-        $orders=Order::where('customer_id','=',auth()->user()->id)->get();
+        $orders=Order::orderBy('id', 'ASC')->get();
         $items=Item::orderBy('id', 'ASC')->get();
 
         $data=['orders'=>$orders,'items'=>$items];

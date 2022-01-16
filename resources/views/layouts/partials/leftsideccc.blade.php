@@ -76,11 +76,7 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">會員中心</div>
-                <a class="nav-link" href="{{ route('admin.products.show') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    會員資料
-                </a>
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('customers.index')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     訂單檢視
                 </a>

@@ -120,7 +120,6 @@
                         @endif
                     @endauth
                 </div>
-
             @endif
                     </li>
             </ul>
