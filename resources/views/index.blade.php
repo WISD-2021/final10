@@ -32,7 +32,7 @@
                         <form action="{{route('carts.store',$product->id)}}" method="POST">
                             @csrf
                             @method('POST')
-                                <img class="card-img-top" src="{{$product->pic}}" alt="..." width="232px" height="232px" value="{{$product->pic}}">
+                        <td>        <img class="card-img-top" src="{{$product->pic}}" alt="..." width="232px" height="232px" value="{{$product->pic}}">
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">

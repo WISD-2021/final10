@@ -45,7 +45,7 @@
                                         <td>{{$product->price}}</td>
                                         <td>{{$product->frag}}</td>
                                         <td>{{$product->type}}</td>
-                                        <td>{{$product->remark}}</td>
+                                        <td>{{Str::limit($product->remark),200}}</td>
                                         <td>{{$product->speci}}</td>
                                         <td>{{$product->unit}}</td>
 
