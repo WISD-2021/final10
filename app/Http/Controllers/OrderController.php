@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart_Item;
 use App\Models\Item;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
@@ -31,6 +32,8 @@ class OrderController extends Controller
         //
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -40,6 +43,31 @@ class OrderController extends Controller
     public function store(StoreOrderRequest $request)
     {
         //
+
+        DB::table('orders')->insert(
+            [
+                'day'=>date("Y-m-d"),
+                'state'=>'處理中',
+                'customer_id'=>auth()->user()->id
+            ]
+        );
+
+        $order_id=Order::orderby('id','DESC')->first()->id;
+        $carts=DB::table('cart__items')->where('customer_id','=',auth()->user()->id)->get();
+        foreach ($carts as $cart){
+            DB::table('items')->insert(
+                [
+                    'order_id'=>$order_id,
+                    'product_id'=>$cart->product_id,
+                    'quantity'=>$cart->quantity
+                ]
+            );
+        }
+
+
+        Cart_Item::where('customer_id', '=', auth()->user()->id)->delete();
+
+        return redirect()->route('index');
     }
 
     /**
@@ -51,11 +79,6 @@ class OrderController extends Controller
     public function show(Order $id)
     {
         //
-        $orders=Order::find($id);
-        $order = ['Orders' => $orders];
-        $items=Item::find($id);
-        $item = ['Items' => $items];
-        return view('customer.customerorder',$order, $item);
     }
 
     /**

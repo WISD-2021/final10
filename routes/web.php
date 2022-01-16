@@ -41,7 +41,7 @@ Route::prefix('customers')->group(function(){
     Route::delete('/carts/destroy/{id}',[CartItemController::class,'destroy'])->name('carts.destroy');
     Route::get('/carts/checkout',[CartItemController::class,'checkout'])->name('carts.checkout');
     //訂單轉換
-    Route::post('orders',[OrderController::class,'transform'])->name('orders.transform');//CART轉換訂單
+    Route::get('orders',[OrderController::class,'store'])->name('orders.store');//CART轉換訂單
     Route::get('orders/{order}',[OrderController::class,'detail'])->name('orders.detail');//訂單詳細
 
 });

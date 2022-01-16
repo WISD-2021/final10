@@ -45,14 +45,14 @@ class CartItemController extends Controller
     public function store($id)
     {
         //
-        $carts=DB::table('cart__items')->where('product_id','=',$id)->get();
-        if(!isset($carts)){
+        $carts=DB::table('cart__items')->where('product_id','=',$id)->count();
+        if($carts==0){
             DB::table('cart__items')->insert
             (
                 [
                     'customer_id'=>auth()->user()->id,
                     'product_id'=>$id,
-                    'quantity'=>'1'
+                    'quantity'=>1
                 ]
             );
 
@@ -97,10 +97,11 @@ class CartItemController extends Controller
     public function update(Request $request,$id)
     {
         //
+        $quan=$request->input('quan');
         DB::table('cart__items')
             ->where('id','=',$id)
             ->update([
-                'quantity' => $request,
+                'quantity' => $quan
             ]);
 
         return redirect()->route('carts.show');
@@ -117,5 +118,24 @@ class CartItemController extends Controller
         //
         Cart_Item::destroy($id);
         return redirect()->route('carts.show');
+    }
+
+    public function checkout(){
+        $carts=DB::table('cart__items')->where('customer_id','=',auth()->user()->id)->get();
+        $products=Product::orderby('id','ASC')->get();
+
+        $sum=0;
+        foreach ($carts as $cart){
+            foreach ($products as $product){
+                if($cart->customer_id==auth()->user()->id){
+                    if($cart->product_id==$product->id){
+                        $sum+=$product->price*$cart->quantity;
+                    }
+                }
+            }
+        }
+
+        $data = ['carts' => $carts,'products'=>$products,'sum'=>$sum];
+        return view('checkout',$data);
     }
 }

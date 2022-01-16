@@ -64,25 +64,45 @@
                             <td>數量</td>
                             <td></td>
                         </tr>
+
                         @foreach($carts as $cart)
                            @foreach($products as $product)
                                @if($cart->product_id==$product->id)
                                     <tr>
                                         <form action="{{ route('carts.update',$cart->id)}}" method="POST" role="form">
+                                            @method('POST')
+                                            @csrf
                                             <td> <img class="card-img-top" src="/images/{{$product->pic}}" width='100px' height='200px'></td>
                                             <td>{{$product->name}}</td>
                                             <td>{{$product->price}}</td>
-                                            <td><input name="quan" type="number" class="form-control-itemname" value="{{ old('quan',$cart->quantity) }}"><span id="space"><button type="submit" class="btn btn-success">儲存數量</button></span></td>
+                                            <td><input name="quan" type="number" class="form-control-itemname" value="{{ old('quan',$cart->quantity) }}">
+                                                <span id="space">
+                                                    <button type="submit" class="btn btn-success">儲存數量</button>
+                                                </span>
+                                            </td>
                                         </form>
                                         <form action="{{ route('carts.destroy',$cart->id) }}" method="POST" style="display: inline">
                                             @method('DELETE')
                                             @csrf
-                                            <td><button class="btn btn-outline-danger mt-auto" >刪除</button></td>
+                                            <td>
+                                                <button class="btn btn-outline-danger mt-auto" >刪除</button>
+                                            </td>
                                         </form>
+
                                     </tr>
+
                                 @endif
                            @endforeach
                         @endforeach
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="{{ route('carts.checkout') }}">結帳</a>
+                            </td>
+                        </tr>
                     </thead>
                 </table>
             </div>
