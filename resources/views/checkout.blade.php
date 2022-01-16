@@ -69,7 +69,7 @@
                            @foreach($products as $product)
                                @if($cart->product_id==$product->id)
                                     <tr>
-                                        <td> <img class="card-img-top" src="/images/{{$product->pic}}" width='100px' height='200px'></td>
+                                        <td> <img class="card-img-top" src="{{$product->pic}}" width='100px' height='200px'></td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->price}}</td>
                                         <td>{{$cart->quantity}}</td>

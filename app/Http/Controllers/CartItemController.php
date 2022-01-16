@@ -69,11 +69,16 @@ class CartItemController extends Controller
     public function show()
     {
         //
+        if (\Illuminate\Support\Facades\Auth::check()) {
         $carts=DB::table('cart__items')->where('customer_id','=',auth()->user()->id)->get();
         $data = ['carts' => $carts];
         $products=Product::orderby('id','ASC')->get();
         $data1=['products'=>$products];
         return view('cart',$data , $data1);
+        }
+        else{
+            return redirect()->route('index');
+        }
     }
 
     /**

@@ -19,7 +19,15 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.admindex');
+        if (\Illuminate\Support\Facades\Auth::check()) {
+            if(auth()->user()->type=='admin'){
+            return view('admin.admindex');}
+            else{
+                return redirect()->route('index');
+            }
+        }else{
+            return redirect()->route('index');
+        }
     }
 
     /**

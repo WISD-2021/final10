@@ -12,7 +12,7 @@ class HomeController extends Controller
     //
     public function index()
     {
-        $products = Product::orderby('id','ASC')->take(6)->get();
+        $products = Product::orderby('id','DESC')->take(6)->get();
         $product = ['products'=> $products];
 
         if(\Illuminate\Support\Facades\Auth::check()){
