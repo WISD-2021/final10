@@ -59,9 +59,7 @@ Route::prefix('admin')->group(function (){
    Route::delete('products/{id}',[AdminProductController::class,'destroy'])->name('admin.products.destroy');
 
     Route::get('orders',[AdminOrderController::class,'show'])->name('admin.orders.show');
-    Route::get('orders/{id}',[AdminOrderController::class,'edit'])->name('admin.orders.edit');
-    Route::Post('orders/update',[AdminOrderController::class,'update'])->name('admin.orders.update');
-    Route::delete('orders/destroy',[AdminOrderController::class,'destroy'])->name('admin.orders.destroy');
+    Route::Post('orders/update/{id}',[AdminOrderController::class,'update'])->name('admin.orders.update');
 });
 
 
