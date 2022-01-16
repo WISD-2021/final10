@@ -12,7 +12,7 @@
     <link href="../css/mana.styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <style>
-        .dataTable-input
+       /* .dataTable-input
         {
             visibility: hidden;
         }
@@ -28,6 +28,14 @@
         .card-body
         {
             padding-top:0px !important;
+        }*/
+        #ttype
+        {
+            color:#ffffff;
+        }
+        #ttype:hover
+        {
+            color:#E9ECEF;
         }
 
         </style>

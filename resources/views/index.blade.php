@@ -18,7 +18,7 @@
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Le parfum ultime</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Le parfum ultime </p>
+                    <p class="lead fw-normal text-white-50 mb-0">最新商品 </p>
                 </div>
             </div>
         </header>
@@ -28,32 +28,30 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
-                @foreach($products as $product)
-                    <form action="{{route('carts.store',$product->id)}}" method="POST">
-                        @csrf
-                        @method('POST')
-                         <img class="card-img-top" src="images/{{$product->pic}}" alt="..." width="232px" height="232px" value="{{$product->pic}}">
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder" value="{{$product->name}}">{{$product->name}}</h5>
-                                    <!-- Product price-->
-                                    ${{$product->price}}
+                    @foreach($products as $product)
+                        <form action="{{route('carts.store',$product->id)}}" method="POST">
+                            @csrf
+                            @method('POST')
+                        <td>        <img class="card-img-top" src="{{$product->pic}}" alt="..." width="232px" height="232px" value="{{$product->pic}}">
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder" value="{{$product->name}}">{{$product->name}}</h5>
+                                        <!-- Product price-->
+                                        ${{$product->price}}
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" href="{{ route('carts.store',$product->id) }}">加入購物車</button>
-                                    <a class="btn btn-outline-danger mt-auto" href="{{ route('products.detail',$product->id) }}" >查看商品</a>
+                                <!-- Product actions-->
+                                <div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center">
+                                        <button class="btn btn-outline-dark mt-auto">加入購物車</button>
+                                        <a class="btn btn-outline-danger mt-auto" href="{{route('products.detail',$product->id)}}" >查看商品</a>
+                                    </div>
                                 </div>
-                            </div>
-                    </form>
-                @endforeach
+                        </form>
+                    @endforeach
                 </div>
             </div>
-
         </section>
 @endsection

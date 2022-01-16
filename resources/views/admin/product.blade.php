@@ -39,13 +39,13 @@
                                 <tbody>
                                 @foreach($products as $product)
                                     <tr>
-                                        <td> <img class="card-img-top" src="/images/{{$product->pic}}"></td>
+                                        <td> <img class="card-img-top" src="{{$product->pic}}"></td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->quan}}</td>
                                         <td>{{$product->price}}</td>
                                         <td>{{$product->frag}}</td>
                                         <td>{{$product->type}}</td>
-                                        <td>{{$product->remark}}</td>
+                                        <td>{{Str::limit($product->remark),200}}</td>
                                         <td>{{$product->speci}}</td>
                                         <td>{{$product->unit}}</td>
 

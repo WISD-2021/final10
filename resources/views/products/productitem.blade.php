@@ -6,7 +6,7 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ url("images/".$product->pic) }}" alt="..." /></div>
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ ($product->pic) }}" alt="..." /></div>
                     <div class="col-md-6">
                         <h1 class="display-5 fw-bolder">{{$product->name}}</h1>
                         <div class="fs-5 mb-5">
@@ -38,7 +38,7 @@
 
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="{{ url("images/".$productur->pic) }}" alt="..." />
+                            <img class="card-img-top" src="{{ ($productur->pic) }}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">

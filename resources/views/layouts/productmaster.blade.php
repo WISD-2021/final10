@@ -25,13 +25,30 @@
         }
         .navbar-nav.me-auto.mb-2.mb-lg-0.ms-lg-4
         {
-            margin-right: 100px !important;
+            margin-right: 0px !important;
 
         }
+        .nav-item.dropdown
+        {
+            margin-right:100px !important;
 
+        }
         .navbar-center
         {
             /*justify-content: center !important;*/
+            margin-right: 60px !important;
+        }
+
+        #und
+        {
+            text-decoration: underline;
+            color:rgba(0,0,0,0.9)!important;
+        }
+        .navbar-light .navbar-nav .nav-link:hover
+        {
+            background-color:#E9ECEF !important;
+            color:#1E2125;
+            border-radius: 5px !important;
         }
     </style>
 </head>
@@ -47,8 +64,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('index')}}">首頁</a></li>
-
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">商品</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -62,29 +77,28 @@
                                 <li><a class="dropdown-item" href="{{route('products.category','海洋調')}}">海洋調</a></li>
                             </ul>
                         </li>
-
-                        <div class="navbar-center justify-content-center">
+                        <div class="navbar-center ">
                             <input class="dataTable-input cr" placeholder="搜尋商品" type="text">
                             <a type="submit" class="btn btn-outline-dark" href="#">搜尋</a>
                         </div>
                     </ul>
-
-            <form class="d-flex">
-                <a class="btn btn-outline-dark" href="{{route('carts.show')}}">
-                    <i class="bi-cart-fill me-1"></i>
-                  購物車
-                    <!--span class="badge bg-dark text-white ms-1 rounded-pill">0</span-->
-                </a>
-            </form>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex">
+                        <a class="btn btn-outline-dark" href="{{route('carts.show')}}">
+                            <i class="bi-cart-fill me-1"></i>
+                            購物車
+                            <!--span class="badge bg-dark text-white ms-1 rounded-pill">0</span-->
+                        </a>
+                    </form>
                     <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="hidden fixed top-0 right-0 ml-4 px-6 py-4 sm:block justify-content-end">
                     @auth
                         <form method="POST" action="{{ route('logout') }}">
                             @if(auth()->user()->type=='customer')
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                                    <a href="{{ route('customers.index') }}" class="nav-link active">會員中心</a>
+                                    <a href="{{ route('customers.index') }}" class="nav-link active" id="und">會員中心</a>
                             @elseif(auth()->user()->type=='admin')
                                 <ul>
                                     <a href="{{route('admin.index')}}" class="nav-link active">管理介面</a>
@@ -94,7 +108,7 @@
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                                      onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                    <u>登出</u>
+                                    <u id="und">登出</u>
                                 </x-jet-dropdown-link>
                                 </ul>
                         </form>
@@ -110,7 +124,8 @@
             @endif
                     </li>
             </ul>
-
+                    </div>
+                </div>
 
         </div>
     </div>

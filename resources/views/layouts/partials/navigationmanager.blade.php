@@ -17,7 +17,7 @@
                         <x-jet-dropdown-link href="{{ route('logout') }}"
                                              onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                            <u>登出</u>
+                            <u id="ttype">登出</u>
                         </x-jet-dropdown-link>
                     </form>
             </div>
