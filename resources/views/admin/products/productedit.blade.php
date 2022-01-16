@@ -89,7 +89,10 @@
                                 <option value="擴香膏"{{ ($products->type=='擴香膏')?'selected':'' }}>擴香膏</option>
 							</select>
 						</div>
-
+                        <div class="form-group">
+                            <label for="pic" class="inline">商品圖片連結：</label>
+                            <input name="pic" class="form-control-itemname" placeholder="請輸入連結" value="{{ old('pic',$products->pic) }}">
+                        </div>
                         <div class="form-group">
                             <label for="remark">內容：</label>
                             <textarea id="remark" name="remark" class="form-control" rows="10"> {{ old('remark',$products->remark) }}</textarea>
