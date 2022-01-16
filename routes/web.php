@@ -37,7 +37,7 @@ Route::prefix('customers')->group(function(){
     //購物車
     Route::get('/carts',[CartItemController::class,'show'])->name('carts.show');
     Route::post('/carts/store/{id}',[CartItemController::class,'store'])->name('carts.store');
-    Route::post('/carts/update',[CartItemController::class,'update'])->name('carts.update');
+    Route::post('/carts/update/{id}',[CartItemController::class,'update'])->name('carts.update');
     Route::delete('/carts/destroy/{id}',[CartItemController::class,'destroy'])->name('carts.destroy');
     Route::get('/carts/checkout',[CartItemController::class,'checkout'])->name('carts.checkout');
     //訂單轉換

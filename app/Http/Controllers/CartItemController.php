@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-
 class CartItemController extends Controller
 {
     /**
@@ -47,7 +46,7 @@ class CartItemController extends Controller
     {
         //
         $carts=DB::table('cart__items')->where('product_id','=',$id)->get();
-        if(!isset($caets)){
+        if(!isset($carts)){
             DB::table('cart__items')->insert
             (
                 [
@@ -56,8 +55,9 @@ class CartItemController extends Controller
                     'quantity'=>'1'
                 ]
             );
+
         }
-        return redirect()->route('index');
+        return back();
     }
 
     /**
@@ -94,12 +94,15 @@ class CartItemController extends Controller
      * @param  \App\Models\Cart_Item  $cart_Item
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCart_ItemRequest $request, Cart_Item $cart_Item)
+    public function update(Request $request,$id)
     {
         //
+        DB::table('cart__items')
+            ->where('id','=',$id)
+            ->update([
+                'quantity' => $request,
+            ]);
 
-        $carts=Cart_Item::orderby('id','ASC')->get();
-        $carts->update($request->all());
         return redirect()->route('carts.show');
     }
 
