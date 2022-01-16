@@ -17,7 +17,7 @@ class HomeController extends Controller
 
         if(\Illuminate\Support\Facades\Auth::check()){
             if(auth()->user()->type=='customer') {
-                 $id=DB::table('customers')->where('id','=',auth()->user()->id);
+            $id=DB::table('customers')->where('id','=',auth()->user()->id);
 
             if(!isset($id)){
                     DB::table('customers')->insert(
