@@ -9,7 +9,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/shoppage.styles.css" rel="stylesheet" />
+    <style>
+        thead,tbody, tfoot, tr, td, th
+        {
+            /*border-color: #1c1f23 !important;
+            border-width:1px !important;*/
+            text-align: center;
+        }
 
+        td
+        {
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+        }
+
+        .card-img-top
+        {
+            width:55% !important;
+        }
+
+        #space
+        {
+            margin-left:15px;
+
+        }
+
+    </style>
 @endsection
 <body>
 @section('index.navbar')
@@ -28,8 +54,8 @@
     <section class="py-5">
 
         <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-14 gx-lg-15 row-cols-15 row-cols-md-15 row-cols-xl-15 justify-content-center">
-                <table>
+            <div class="row gx-14 gx-lg-15 row-cols-15 row-cols-md-10 row-cols-xl-15 justify-content-center">
+                <table class="borderuse" id="borderuse">
                     <thead>
                         <tr>
                             <td>商品圖片</td>
@@ -46,8 +72,7 @@
                                             <td> <img class="card-img-top" src="/images/{{$product->pic}}" width='100px' height='200px'></td>
                                             <td>{{$product->name}}</td>
                                             <td>{{$product->price}}</td>
-                                            <td><input name="quan" type="number" class="form-control-itemname" value="{{ old('quan',$cart->quantity) }}"></td>
-                                            <td><button type="submit" class="btn btn-success">儲存數量</button></td>
+                                            <td><input name="quan" type="number" class="form-control-itemname" value="{{ old('quan',$cart->quantity) }}"><span id="space"><button type="submit" class="btn btn-success">儲存數量</button></span></td>
                                         </form>
                                         <form action="{{ route('carts.destroy',$cart->id) }}" method="POST" style="display: inline">
                                             @method('DELETE')

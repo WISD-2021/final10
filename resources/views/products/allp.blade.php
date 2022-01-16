@@ -45,7 +45,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">加入購物車</a>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{route('carts.store',$product->id)}}">加入購物車</a>
                                     <a class="btn btn-outline-danger mt-auto" href="{{route('products.detail',$product->id)}}" >查看商品</a></div>
                             </div>
                         </div>
