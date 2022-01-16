@@ -8,6 +8,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartItemController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::prefix('customers')->group(function(){
 
-    Route::get('/',[CustomerController::class,'index'])->name('customers.index'); //會員中心
+    Route::get('/',[CustomerController::class,'index'])->name('customers.index'); //會員中心+顯示訂單
     Route::get('show',[CustomerController::class,'show'])->name('customers.show');//會員資料顯示+訂單
     Route::get('edit/{id}',[CustomerController::class,'edit'])->name('customers.edit');//會員資料編輯
     Route::post('store',[CustomerController::class,'store'])->name('customers.store');
@@ -42,7 +43,7 @@ Route::prefix('customers')->group(function(){
     Route::get('/carts/checkout',[CartItemController::class,'checkout'])->name('carts.checkout');
     //訂單轉換
     Route::get('orders',[OrderController::class,'store'])->name('orders.store');//CART轉換訂單
-    Route::get('orders/{order}',[OrderController::class,'detail'])->name('orders.detail');//訂單詳細
+    Route::get('orders/{order}',[ItemController::class,'show'])->name('items.show');//訂單詳細
 
 });
 

@@ -20,13 +20,25 @@ class CustomerController extends Controller
     public function index()
     {
         //
+        $orders=Order::where('customer_id','=',auth()->user()->id)->orderby('id','ASC')->get();
 
-        $orders=Order::orderby('id','ASC')->get();
-        $data=['orders'=>$orders];
         $items=Item::orderby('id','ASC')->get();
-        $item=['items'=>$items];
-        return view('customer.customer',$data,$item);
+        $products=Product::orderby('id','ASC')->get();
 
+        $sum=0;
+        foreach ($orders as $order){
+            foreach ($items as $item){
+                if($order->id==$item->order_id){
+                foreach ($products as $product){
+                        if($item->product_id==$product->id){
+                            $sum+=$product->price*$item->quantity;
+                        }
+                    }
+                }
+            }
+        }
+        $data=['orders'=>$orders,'sum'=>$sum];
+        return view('customer.customer',$data);
     }
 
     /**

@@ -84,7 +84,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @if(auth()->user()->type=='customer')
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                                    <a href="{{ route('customers.index') }}" class="nav-link active">會員基本資料</a>
+                                    <a href="{{ route('customers.index') }}" class="nav-link active">會員中心</a>
                             @elseif(auth()->user()->type=='admin')
                                 <ul>
                                     <a href="{{route('admin.index')}}" class="nav-link active">管理介面</a>
