@@ -41,7 +41,7 @@
 <hr>
 <img src="https://i.imgur.com/G7BfDLg.jpg" width="400">
 <h2>欄位設計</h2>
-<hr><font size="3pt">
+<hr>
 <p><h3>商品</h3>
 <img src="https://i.imgur.com/RodKkGp.jpg" width="400"></p>
 <p><h3>訂單</h3>
@@ -50,10 +50,10 @@
 <img src="https://i.imgur.com/SF3bdej.jpg" width="400"></p>
 <p><h3>挑選商品</h3>
 <img src="https://i.imgur.com/UPdma97.jpg" width="400"></p>
-</font>
+
 <hr style="border-bottom:3px solid;">
 <h2>系統主要功能</h2>
-<hr><font size="3pt">
+<hr>
 <h3>使用者：</h3>
 <ol>
 <li> 瀏覽平台首頁</li>
@@ -77,12 +77,24 @@
 <li> 刪除商品資料</li>
 <li> 檢視訂單</li>
 <li> 修改訂單狀態</li>
-</ol></font>
+</ol>
 <hr style="border-bottom:3px solid;">
+<h2>額外使用模板與套件</h2>
+<hr>
 
-
+<h4>前台</h4>
+<ul>
+<li>主頁面：<a href="https://startbootstrap.com/template/shop-homepage">Shop Homepage</a></li>
+<li>商品詳細資訊：<a href="https://startbootstrap.com/template/shop-item">Shop Item</a></li>
+<li>會員中心：<a href="https://startbootstrap.com/template/sb-admin">SB Admin</a></li>
+</ul>
+<h4>後台</h4>
+<ul>
+<li>管理中心：<a href="https://startbootstrap.com/template/sb-admin">SB Admin</a></li>
+</ul>
+<hr style="border-bottom:3px solid;">
 <h2>系統還原步驟</h2>
-<hr><font size="3pt">
+<hr>
 <ol>
 <li>開啟Cmder，輸入以下指令（以克隆、進入專案資料夾）：
 <pre>
@@ -125,39 +137,38 @@ php artisan migrate
 {DOCUMENTPATH}/final10/public
 </pre>
 </li>
-</ol></font>
+</ol>
 <hr style="border-bottom:3px solid;">
 <p>
 <h2>初始專案與DB負責的同學</h2>
-<hr><font size="3pt">
+<hr>
 <ul>
 <li>初始專案建置：<a href="https://github.com/3A832098">3A832098 郭芷伶</a></li>
 <li>資料庫關聯：<a href="https://github.com/3A832061">3A832061 莊怡萱（Product、Order、Admin、Customer）</a>、
 <a href="https://github.com/3A832098">3A832098 郭芷伶（Cart、Item）</a></li>
-</ul></font>
+</ul>
 <hr style="border-bottom:3px solid;">
 <h2>系統使用帳號</h2>
 <hr>
-<font size="3pt">
+
 <li>會員-帳號：<code>456@456</code>，密碼：<code>12345678</code></li><p>
 <li>平台人員-帳號：<code>123@123</code>，密碼：<code>12345678</code></li>
-</font>
+
 <hr style="border-bottom:3px solid;">
 <h2>系統開發人員</h2>
-<hr><font size="3pt">
+<hr>
 <li><a href="https://github.com/3A832061">3A832061 莊怡萱</a></li>
 <p><li><a href="https://github.com/3A832098">3A832098 郭芷伶</a></li>
-</font>
+
 <hr style="border-bottom:3px solid;">
 <h2>工作分配</h2>
-<hr><font size="3pt">
-<li><a href="https://github.com/3A832061">3A832061莊怡萱</a></li>
+<hr>
+<li><a href="https://github.com/3A832061">3A832061 莊怡萱</a></li>
 <ul>
 平台人員新增、修改、刪除商品、管理訂單狀態，
 <br>轉換為訂單、會員顯示訂單
 </ul>
-<li><a href="https://github.com/3A832098">3A832098郭芷伶</a></li>
+<li><a href="https://github.com/3A832098">3A832098 郭芷伶</a></li>
 <ul>首頁、所有商品、商品分類顯示，<br>
 會員新增、修改、刪除購物車</ul>
-</font>
 <hr style="border-bottom:3px solid;">
