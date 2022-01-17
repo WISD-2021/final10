@@ -83,7 +83,7 @@
                             <td>總金額：{{$sum}}</td>
 
                                 <td>
-                                    <a href="{{route('orders.store')}}">確認結帳</a>
+                                    <a class="btn btn-primary mt-auto" href="{{route('orders.store')}}">確認結帳</a>
                                 </td>
                         </tr>
                     </thead>

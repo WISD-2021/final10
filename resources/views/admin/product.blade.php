@@ -42,7 +42,7 @@
                                         <td> <img class="card-img-top" src="{{$product->pic}}"></td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->quan}}</td>
-                                        <td>{{$product->price}}</td>
+                                        <td id="und">{{$product->price}}</td>
                                         <td>{{$product->frag}}</td>
                                         <td>{{$product->type}}</td>
                                         <td>{{Str::limit($product->remark),200}}</td>

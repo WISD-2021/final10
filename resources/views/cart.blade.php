@@ -19,7 +19,7 @@
         }
         thead
         {
-            border-color: lightgray !important;
+            border-color: whitesmoke !important;
            border-width:1px !important;
             border-radius: 23px 23px 23px 23px !important;
         }
@@ -31,11 +31,14 @@
         #quan
         {
              width:250px !important;
+            border-left-color: whitesmoke !important;
+            border-right-color: whitesmoke !important;
+            border-width: 1px;
         }
         .card-img-top
         {
             width:200px !important;
-            height:200px !important;
+            height:auto !important;
         }
         #space
         {
@@ -45,23 +48,31 @@
         {
             height:35px !important;
             background-color:#ebebeb !important;
-            border-bottom: lightgray !important;
+            border-bottom: whitesmoke !important;
+            padding: 0px !important;
         }
         #pic, #nan
         {
             width:200px !important;
-            border-left-color: lightgray !important;
-            border-right-color: lightgray !important;
+            border-left-color: whitesmoke !important;
+            border-right-color: whitesmoke !important;
             border-width: 1px;
         }
         #deel,#money
         {
             width:60px !important;
-            border-left-color: lightgray !important;
-            border-right-color: lightgray !important;
+            border-left-color: whitesmoke !important;
+            border-right-color: whitesmoke !important;
             border-width: 1px;
         }
-
+        #au
+        {
+            height:100px;
+        }
+        .form-control-itemname
+        {
+            border-color: whitesmoke !important;
+        }
 
     </style>
 @endsection
@@ -90,7 +101,7 @@
                             <td id="nan">商品名稱</td>
                             <td id="money">價格</td>
                             <td id="quan">數量</td>
-                            <td>變更明細</td>
+                            <td></td>
                         </tr>
 
                         @foreach($carts as $cart)
@@ -103,7 +114,11 @@
                                             <td id="pic"> <img class="card-img-top" src="{{$product->pic}}" width='100px' height='200px'></td>
                                             <td id="nan">{{$product->name}}</td>
                                             <td id="money">{{$product->price}}</td>
-                                            <td id="quan"><input name="quan" type="number" class="form-control-itemname" value="{{ old('quan',$cart->quantity) }}"><span id="space"><button type="submit" class="btn btn-success">儲存數量</button></span></td>
+                                            <td id="quan"><input name="quan" type="number" class="form-control-itemname" value="{{ old('quan',$cart->quantity) }}">
+                                                <span id="space">
+                                                    <button type="submit" class="btn btn-success">儲存數量</button>
+                                                </span>
+                                            </td>
                                         </form>
                                         <form action="{{ route('carts.destroy',$cart->id) }}" method="POST" style="display: inline">
                                             @method('DELETE')
@@ -119,8 +134,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>
-                                <a href="{{ route('carts.checkout') }}">結帳</a>
+                            <td id="au">
+                                <a class="btn btn-primary mt-auto" href="{{ route('carts.checkout') }}">結帳</a>
                             </td>
                         </tr>
                     </thead>
