@@ -119,10 +119,10 @@
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="{{route('index')}}">Le parfum ultime</a>
 
-                        <form class="navbar-search lg-hidden">
+                  <!--      <form class="navbar-search lg-hidden">
                             <input name="searchContent" class="dataTable-input " placeholder="搜尋商品" type="text">
                             <button type="submit" class="btn btn-outline-dark">搜尋</button>
-                        </form>
+                        </form>-->
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -154,10 +154,10 @@
                     </ul>
                     <div class="nav-searach-auth">
 
-                        <form class="navbar-search sm-hidden">
+                    <!--     <form class="navbar-search sm-hidden">
                             <input name="searchContent" class="dataTable-input " placeholder="搜尋商品" type="text">
                             <button type="submit" class="btn btn-outline-dark">搜尋</button>
-                        </form>
+                        </form>-->
 
 
 
