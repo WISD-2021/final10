@@ -23,18 +23,18 @@
                         <div class="card-body">
                             <table id="datatablesSimple">
                                 <thead>
-                                <tr>
-                                    <th>商品圖片</th>
-                                    <th>商品名稱</th>
-                                    <th>庫存</th>
-                                    <th>單價</th>
-                                    <th>香味類別</th>
-                                    <th>種類</th>
-                                    <th>商品介紹</th>
-                                    <th>規格</th>
-                                    <th>單位</th>
-                                    <th></th>
-                                </tr>
+                                    <tr>
+                                        <th>商品圖片</th>
+                                        <th>商品名稱</th>
+                                        <th>庫存</th>
+                                        <th>單價</th>
+                                        <th>香味類別</th>
+                                        <th>種類</th>
+                                        <th>商品介紹</th>
+                                        <th>規格</th>
+                                        <th>單位</th>
+                                        <th></th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($products as $product)

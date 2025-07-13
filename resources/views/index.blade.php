@@ -1,4 +1,5 @@
 @extends('layouts.productmaster')
+@section('title','Le parfum ultime')
 @section('index.head')
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/lib/w3.css">

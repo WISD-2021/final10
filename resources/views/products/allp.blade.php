@@ -1,8 +1,8 @@
 @extends('layouts.productmaster')
+@section('title','Le parfum ultime')
 @section('index.head')
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/lib/w3.css">
-    <title>Le parfum ultime</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
