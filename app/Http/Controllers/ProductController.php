@@ -94,7 +94,7 @@ class ProductController extends Controller
     public function category($frag)
     {
         $category = DB::table('products')->where('frag','=',$frag)->get();
-        return view('products.productcategory', ['product' => $category]);
+        return view('products.productcategory', ['product' => $category,'frag' => $frag]);
     }
     public function all()
     {

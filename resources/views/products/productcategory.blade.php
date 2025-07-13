@@ -1,5 +1,5 @@
 @extends('layouts.productmaster')
-
+@section('title','Le parfum ultime')
 @section('index.head')
     <!-- Navigation navbar-->
 
@@ -17,13 +17,13 @@
 <body>
 @section('index.navbar')
     <!--商品-->
-    <section class="py-5">
+    <section >
         <!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Le parfum ultime</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">質調</p>
+                    <h1 class=" fw-bolder">香調分類</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">{{$frag}}</p>
                 </div>
             </div>
         </header>

@@ -33,6 +33,7 @@
                         <form action="{{route('carts.store',$product->id)}}" method="POST">
                             @csrf
                             @method('POST')
+                              <div class="card h-100">
                         <td>        <img class="card-img-top" src="{{$product->pic}}" alt="..." width="232px" height="232px" value="{{$product->pic}}">
                                 <!-- Product details-->
                                 <div class="card-body p-4">
@@ -50,6 +51,8 @@
                                         <a class="btn btn-outline-danger mt-auto" href="{{route('products.detail',$product->id)}}" >查看商品</a>
                                     </div>
                                 </div>
+</div>
+
                         </form>
                     @endforeach
                 </div>

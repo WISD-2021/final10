@@ -38,9 +38,9 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">{{$product->name}}</h5>
+                                    <h5 class="fw-bolder">{{Str::limit($product->name,18,"...")}}</h5>
                                     <!-- Product price-->
-                                    {{$product->price}}
+                                    ${{$product->price}}
                                 </div>
                             </div>
                             <!-- Product actions-->
